@@ -5,8 +5,8 @@ public class Vinilo extends Antiguedad {
 	protected String nombre;
 	protected String artista;
 
-	public Vinilo(int añoFabricacion, String origen, int precio, String nombre, String artista) {
-		super(añoFabricacion, origen, precio);
+	public Vinilo(int aÃ±oFabricacion, String origen, int precio, String nombre, String artista) {
+		super(aÃ±oFabricacion, origen, precio);
 		this.nombre = nombre;
 		this.artista = artista;
 	}
@@ -29,7 +29,7 @@ public class Vinilo extends Antiguedad {
 
 	@Override
 	public String toString() {
-		return "Vinilo [nombre=" + nombre + ", artista=" + artista + ", añoFabricacion=" + añoFabricacion + ", origen="
+		return "Vinilo [nombre=" + nombre + ", artista=" + artista + ", aï¿½oFabricacion=" + aÃ±oFabricacion + ", origen="
 				+ origen + ", precio=" + precio + "]";
 	}
 

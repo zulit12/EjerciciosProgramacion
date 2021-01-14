@@ -6,8 +6,8 @@ public class Libro extends Antiguedad {
 	protected String titulo;
 	protected String editorial;
 
-	protected Libro(int añoFabricacion, String origen, int precio, String autor, String titulo, String editorial) {
-		super(añoFabricacion, origen, precio);
+	protected Libro(int aÃ±oFabricacion, String origen, int precio, String autor, String titulo, String editorial) {
+		super(aÃ±oFabricacion, origen, precio);
 		this.autor = autor;
 		this.titulo = titulo;
 		this.editorial = editorial;
@@ -39,8 +39,8 @@ public class Libro extends Antiguedad {
 
 	@Override
 	public String toString() {
-		return "Libro [autor=" + autor + ", titulo=" + titulo + ", editorial=" + editorial + ", añoFabricacion="
-				+ añoFabricacion + ", origen=" + origen + ", precio=" + precio + "]";
+		return "Libro [autor=" + autor + ", titulo=" + titulo + ", editorial=" + editorial + ", aï¿½oFabricacion="
+				+ aÃ±oFabricacion + ", origen=" + origen + ", precio=" + precio + "]";
 	}
 
 }

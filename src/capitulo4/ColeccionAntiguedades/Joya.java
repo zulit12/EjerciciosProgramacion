@@ -4,8 +4,8 @@ public class Joya extends Antiguedad {
 
 	protected String materialFabricacion;
 	
-	protected Joya(int añoFabricacion, String origen, int precio, String materialFabricacion) {
-		super(añoFabricacion, origen, precio);
+	protected Joya(int aÃ±oFabricacion, String origen, int precio, String materialFabricacion) {
+		super(aÃ±oFabricacion, origen, precio);
 		this.materialFabricacion = materialFabricacion;
 		
 	}
@@ -20,7 +20,7 @@ public class Joya extends Antiguedad {
 
 	@Override
 	public String toString() {
-		return "Joyas [materialFabricacion=" + materialFabricacion + ", añoFabricacion=" + añoFabricacion + ", origen="
+		return "Joyas [materialFabricacion=" + materialFabricacion + ", aï¿½oFabricacion=" + aÃ±oFabricacion + ", origen="
 				+ origen + ", precio=" + precio + "]";
 	}
 	
