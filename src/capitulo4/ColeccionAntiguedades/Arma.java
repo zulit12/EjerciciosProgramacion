@@ -5,8 +5,8 @@ class Arma extends Antiguedad {
 	protected String fabricante;
 	protected String calibre;
 
-	public Arma(int añoFabricacion, String origen, int precio, String fabricante, String calibre) {
-		super(añoFabricacion, origen, precio);
+	public Arma(int aÃ±oFabricacion, String origen, int precio, String fabricante, String calibre) {
+		super(aÃ±oFabricacion, origen, precio);
 		this.fabricante = fabricante;
 		this.calibre = calibre;
 
@@ -30,7 +30,7 @@ class Arma extends Antiguedad {
 
 	@Override
 	public String toString() {
-		return "Arma [fabricante=" + fabricante + ", calibre=" + calibre + ", añoFabricacion=" + añoFabricacion
+		return "Arma [fabricante=" + fabricante + ", calibre=" + calibre + ", aï¿½oFabricacion=" + aÃ±oFabricacion
 				+ ", origen=" + origen + ", precio=" + precio + "]";
 	}
 

@@ -2,22 +2,22 @@ package capitulo4.ColeccionAntiguedades;
 
 public class Antiguedad {
 
-	protected int añoFabricacion;
+	protected int aÃ±oFabricacion;
 	protected String origen;
 	protected int precio;
 
-	protected Antiguedad(int añoFabricacion, String origen, int precio) {
-		this.añoFabricacion = añoFabricacion;
+	protected Antiguedad(int aÃ±oFabricacion, String origen, int precio) {
+		this.aÃ±oFabricacion = aÃ±oFabricacion;
 		this.origen = origen;
 		this.precio = precio;
 	}
 
-	protected int getAñoFabricacion() {
-		return añoFabricacion;
+	protected int getAÃ±oFabricacion() {
+		return aÃ±oFabricacion;
 	}
 
-	protected void setAñoFabricacion(int añoFabricacion) {
-		this.añoFabricacion = añoFabricacion;
+	protected void setAÃ±oFabricacion(int aÃ±oFabricacion) {
+		this.aÃ±oFabricacion = aÃ±oFabricacion;
 	}
 
 	protected String getOrigen() {
@@ -38,7 +38,7 @@ public class Antiguedad {
 
 	@Override
 	public String toString() {
-		return "Antiguedad [añoFabricacion=" + añoFabricacion + ", origen=" + origen + ", precio=" + precio + "]";
+		return "Antiguedad [aï¿½oFabricacion=" + aÃ±oFabricacion + ", origen=" + origen + ", precio=" + precio + "]";
 	}
 
 }
