@@ -17,7 +17,8 @@ public class CalcularPiSeriesInfinitas {
 
 	} while (Math.abs(Math.PI - piCalculado) >= 0.00001);	
 	System.out.println(piCalculado);
+	System.out.println(Math.PI);
 		
 	}
-
+	
 }
