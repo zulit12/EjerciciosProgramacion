@@ -12,7 +12,7 @@ public class MaximoLocales {
 		y2 = (x + 0.00001) * Math.sin(x + 0.00001); 
 		
 		if (y > y1 && y > y2) {
-			System.out.println("x1" + x + "\ty" + y);
+			System.out.println("x" + x + "\ty" + y);
 			fin++;
 		}
 		
