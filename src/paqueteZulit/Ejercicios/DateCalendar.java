@@ -116,7 +116,7 @@ public class DateCalendar {
 		System.out.println("Hora Roma: " + ahoraEnRoma.get(Calendar.HOUR_OF_DAY));
 		System.out.println("Hora Sidney: " + ahoraEnSidney.get(Calendar.HOUR_OF_DAY));
 		
-		int diferenciaRomaSidney = ahoraEnSidney.get(Calendar.HOUR_OF_DAY) - ahoraEnRoma.get(Calendar.HOUR_OF_DAY);
+		int diferenciaRomaSidney = ahoraEnRoma.get(Calendar.HOUR_OF_DAY) - ahoraEnSidney.get(Calendar.HOUR_OF_DAY);
 		
 		System.out.println("Diferencia Horaria Entre Roma y Sydney: " + diferenciaRomaSidney);
 	}
@@ -125,9 +125,9 @@ public class DateCalendar {
 	public static void main(String[] args) {
 		
 		//formateoFecha();
-		//restarZonaHorarias();	
 		//obtencionDeCampos();
-		nuevasFechas();
+		//nuevasFechas();
+		restarZonaHorarias();	
 		
 	}
 
