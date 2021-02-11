@@ -30,7 +30,7 @@ public class DateCalendar {
 	
 	private static void obtencionDeCampos() {
 		
-		String fecha = JOptionPane.showInputDialog("Inserte la decha con el siguiente formato: dd/MM/yyyy HH:mm:ss");
+		String fecha = JOptionPane.showInputDialog("Inserte la fecha con el siguiente formato: dd/MM/yyyy HH:mm:ss");
 		Date fechaParseada = null;
 		SimpleDateFormat sdf = new SimpleDateFormat ("dd/MM/yyyy HH:mm:ss");
 		Calendar calendar = Calendar.getInstance();
@@ -90,23 +90,23 @@ public class DateCalendar {
 		System.out.println("Fecha que el usuario ha introducido: " + fecha);
 		System.out.println("Fecha parseada: " + fechaParseada);
 
-		
+		//Añadir tres dias
 		calendar.add(Calendar.DAY_OF_MONTH, 3);
 		System.out.println("Ahora mas 3 dias : " + calendar.getTime());
 		
+		//Restar 2 semanas
 		calendar.add(Calendar.WEEK_OF_MONTH, 2);
 		System.out.println("Ahora menos 2 semanas : " + calendar.getTime());
 		
+		//Suñar 300 dias
 		calendar.add(Calendar.DAY_OF_MONTH, 300);
 		System.out.println("Ahora mas 300 dias : " + calendar.getTime());
 		
+		//Sumar 4 años
 		calendar.add(Calendar.YEAR, 4);
 		System.out.println("Ahora mas 4 años : " + calendar.getTime());
 		
-		
-		
 	}
-	
 	
 	private static void restarZonaHorarias () {
 	
@@ -120,7 +120,6 @@ public class DateCalendar {
 		
 		System.out.println("Diferencia Horaria Entre Roma y Sydney: " + diferenciaRomaSidney);
 	}
-	
 	
 	public static void main(String[] args) {
 		
