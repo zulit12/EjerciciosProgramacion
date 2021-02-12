@@ -3,13 +3,12 @@ package tresEnRaya;
 import java.awt.Color;
 import java.awt.Graphics;
 
-
 public class CuadroDeJuego {
 
 	private int esquinaX, esquinaY;
 	private int ancho, alto;
 	private int xTablero, yTablero;
-	
+	private int jugadorPropietario = 0;
 	
 	public CuadroDeJuego(int xTablero, int yTablero) {
 		super();
@@ -28,7 +27,46 @@ public class CuadroDeJuego {
 		g.setColor(Color.black);
 		g.drawRect(esquinaX, esquinaY, ancho, alto);
 		
+			pintaImagenesVectoriales(g);
+		
+		
 	}
+	
+	private void pintaImagenesVectoriales (Graphics g) {
+		// Ahora, dependiendo del jugador propietario de este cuadro, pinto algo diferente
+		if (this.jugadorPropietario == TresEnRaya.JUGADOR_1) { // Comprueba jugador 1 - pinta una cruz
+			// Para pintar una cruz pinto dos l�neas que se cruzan
+			g.drawLine(this.esquinaX, this.esquinaY, 
+					this.esquinaX + this.ancho, this.esquinaY + alto);
+			g.drawLine(this.esquinaX, this.esquinaY + alto, 
+					this.esquinaX + this.ancho, this.esquinaY);
+		} 
+		if (this.jugadorPropietario == TresEnRaya.JUGADOR_2) { // En este caso el jugador 2
+			g.drawOval(this.esquinaX, this.esquinaY, this.ancho, this.alto);
+		}
+	}
+	
+	public boolean seHaHechoclicSobreCuadro (int xClic, int yClic) {
+		// Compruebo si las coordenas del clic est�n dentro del espacio que ocupa mi cuadro
+		if (xClic > this.esquinaX && xClic < (esquinaX + ancho) // Coordenada x dentro del ancho
+				&&
+			yClic > this.esquinaY && yClic < (esquinaY + alto)) { // Coordenada y dentro del alto
+			return true;
+		}
+		return false;
+	}
+	
+	public void clic (int jugador) {
+		if (this.jugadorPropietario == 0) {
+			this.jugadorPropietario = jugador;
+		}
+				
+		// Obligo a repintar el objeto Canvas
+		TresEnRaya.getInstacia().repaint();
+		TresEnRaya.getInstacia().revalidate();
+	}
+	
+	
 	
 	public int getEsquinaX() {
 		return esquinaX;

@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -23,6 +25,10 @@ public class TresEnRaya extends Canvas {
 		private static TresEnRaya instancia = null;
 		
 		List<CuadroDeJuego> cuadrados = new ArrayList<CuadroDeJuego>();
+		
+		public static int JUGADOR_1 = 1;
+		public static int JUGADOR_2 = 2;
+		private int turnoActual = JUGADOR_1;
 		
 	public static TresEnRaya getInstacia () {
 		if (instancia == null) {
@@ -44,6 +50,33 @@ public class TresEnRaya extends Canvas {
 		ventana.setBounds( 0, 0, ANCHO, ALTO);
 		
 		ventana.setVisible(true);
+		
+		this.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				// S�lo nos interesa el clic con el bot�n principal del rat�n
+				if (e.getButton() == MouseEvent.BUTTON1) {
+					for (CuadroDeJuego cuadrados : cuadrados) {
+						if (cuadrados.seHaHechoclicSobreCuadro(e.getX(), e.getY())) {
+							cuadrados.clic(turnoActual);
+							// Hago cambio de turno
+							if (turnoActual == JUGADOR_1) {
+								// cambio el turno
+								turnoActual = JUGADOR_2;
+							}
+							else {
+								// Cambio el turno
+								turnoActual = JUGADOR_1;
+							}
+						}
+					}
+				}
+			}
+		});
+		
+		
 		
 		ventana.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		ventana.addWindowListener( new WindowAdapter() {
