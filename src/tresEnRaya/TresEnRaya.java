@@ -19,13 +19,9 @@ public class TresEnRaya extends Canvas {
 		
 		public static final int ANCHO = 400;
 		public static final int ALTO = 400;
-		
 		JFrame ventana = null;
-		
 		private static TresEnRaya instancia = null;
-		
 		List<CuadroDeJuego> cuadrados = new ArrayList<CuadroDeJuego>();
-		
 		public static int JUGADOR_1 = 1;
 		public static int JUGADOR_2 = 2;
 		private int turnoActual = JUGADOR_1;
