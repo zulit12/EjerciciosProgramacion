@@ -35,7 +35,7 @@ public class CuadroDeJuego {
 	private void pintaImagenesVectoriales (Graphics g) {
 		// Ahora, dependiendo del jugador propietario de este cuadro, pinto algo diferente
 		if (this.jugadorPropietario == TresEnRaya.JUGADOR_1) { // Comprueba jugador 1 - pinta una cruz
-			// Para pintar una cruz pinto dos l�neas que se cruzan
+			// Para pintar una cruz pinto dos lineas que se cruzan
 			g.drawLine(this.esquinaX, this.esquinaY, 
 					this.esquinaX + this.ancho, this.esquinaY + alto);
 			g.drawLine(this.esquinaX, this.esquinaY + alto, 
@@ -47,7 +47,7 @@ public class CuadroDeJuego {
 	}
 	
 	public boolean seHaHechoclicSobreCuadro (int xClic, int yClic) {
-		// Compruebo si las coordenas del clic est�n dentro del espacio que ocupa mi cuadro
+		// Compruebo si las coordenas del clic estan dentro del espacio que ocupa mi cuadro
 		if (xClic > this.esquinaX && xClic < (esquinaX + ancho) // Coordenada x dentro del ancho
 				&&
 			yClic > this.esquinaY && yClic < (esquinaY + alto)) { // Coordenada y dentro del alto
@@ -60,10 +60,23 @@ public class CuadroDeJuego {
 		if (this.jugadorPropietario == 0) {
 			this.jugadorPropietario = jugador;
 		}
-				
+		
+		// Actualizo la matriz de jugadas de este juego para reflejar la nueva jugada llevada a 
+		// cabo sobre este cuadro
+		TresEnRaya.getInstacia().getMatrizJugadas()[this.yTablero][this.xTablero] = jugador;
+		
 		// Obligo a repintar el objeto Canvas
 		TresEnRaya.getInstacia().repaint();
 		TresEnRaya.getInstacia().revalidate();
+		
+		// S�lo por depurar el programa, imprimo en consola la matriz de jugadas
+		System.out.println("Estado del juego");
+		for (int i = 0; i < TresEnRaya.getInstacia().getMatrizJugadas().length; i++) {
+			for (int j = 0; j < TresEnRaya.getInstacia().getMatrizJugadas()[i].length; j++) {
+				System.out.print(TresEnRaya.getInstacia().getMatrizJugadas()[i][j] + "\t");
+			}
+			System.out.println();
+		}
 	}
 	
 	
