@@ -24,9 +24,9 @@ public class Main {
 			throw new PalabraClave("La frase introducida no contiene la palabra -bombilla-");
 		}
 		
-		String palabrasOfensivas[] = new String[] {"tonto", "tonta", "idiota"};
+		String palabrasOfensivas[] = new String[] {"TONTO", "TONTA", "IDIOTA"};
 		for (String palabraOfensiva : palabrasOfensivas) {
-			if (frase.toUpperCase().indexOf(palabraOfensiva) != -1) {
+			if (frase.toUpperCase().indexOf(palabraOfensiva) == -1) {
 				throw new PalabraOfensiva("Palabra " + palabraOfensiva + " encontrada");
 			}
 		}
