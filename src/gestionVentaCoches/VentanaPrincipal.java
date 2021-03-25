@@ -4,8 +4,10 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
-import gestionVentaCoches.controladores.PanelCoches;
-import gestionVentaCoches.controladores.PanelFabricantes;
+import gestionVentaCoches.controladores.PanelCliente;
+import gestionVentaCoches.controladores.PanelCoche;
+import gestionVentaCoches.controladores.PanelFabricante;
+
 
 public class VentanaPrincipal extends JFrame {
 
@@ -44,8 +46,9 @@ public class VentanaPrincipal extends JFrame {
 	private JTabbedPane getPanelPrincipal() {
 		jTabbedPane = new JTabbedPane();
 		
-		jTabbedPane.add("Fabricantes", new PanelFabricantes());
-		jTabbedPane.add("Coches", new PanelCoches());
+		jTabbedPane.add("Fabricantes", new PanelFabricante());
+		jTabbedPane.add("Coches", new PanelCoche());
+		jTabbedPane.add("Clienes", new PanelCliente());
 		
 		return jTabbedPane;
 	}

@@ -19,7 +19,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
 
-public class PanelCoches extends JPanel {
+public class PanelCoche extends JPanel {
 	
 	Coche actual = new Coche();
 	
@@ -27,12 +27,12 @@ public class PanelCoches extends JPanel {
 	private JTextField jtfBastidor;
 	private JTextField jtfModelo;
 	private JTextField jtfColor;
-	private JComboBox jcbFabricante;
+	private JComboBox<Fabricante> jcbFabricante;
 
 	/**
 	 * Create the panel.
 	 */
-	public PanelCoches() {
+	public PanelCoche() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
@@ -215,7 +215,7 @@ public class PanelCoches extends JPanel {
 			
 			// Carga del fabricante
 			for (int i = 0; i < this.jcbFabricante.getItemCount(); i++) {
-				if (this.actual.getIdFabricante() == ((Coche) this.jcbFabricante.getItemAt(i)).getId()) {
+				if (this.actual.getIdFabricante() == this.jcbFabricante.getItemAt(i).getId()) {
 					this.jcbFabricante.setSelectedIndex(i);
 				}
 			}

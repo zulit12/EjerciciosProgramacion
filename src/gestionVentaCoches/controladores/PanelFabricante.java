@@ -1,8 +1,5 @@
 package gestionVentaCoches.controladores;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,7 +16,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PanelFabricantes extends JPanel {
+public class PanelFabricante extends JPanel {
 
 	Fabricante actual = null;
 	
@@ -41,7 +38,7 @@ public class PanelFabricantes extends JPanel {
 	/**
 	 * Create the application.
 	 */
-	public PanelFabricantes() {
+	public PanelFabricante() {
 		super();
 		initialize();
 		this.actual = ControladorFabricante.getInstance().findPrimero();
