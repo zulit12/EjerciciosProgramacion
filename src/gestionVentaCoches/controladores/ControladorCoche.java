@@ -1,10 +1,13 @@
-package tutorialJava.capitulo8_AWT_SWING.gestionVentaDeCoches;
+package gestionVentaCoches.controladores;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import gestionVentaCoches.Coche;
+import gestionVentaCoches.Fabricante;
 
 public class ControladorCoche {
 
@@ -226,5 +229,30 @@ public class ControladorCoche {
 		}
 		return registrosAfectados;
 	}
+
+	
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public int modificar (Coche c) {
+		int registrosAfectados = 0;
+		try {
+			Statement s = (Statement) this.conn.createStatement(); 
+
+			registrosAfectados = s.executeUpdate ("update coche set idFabricante=" + c.getIdFabricante() + ", " +
+					" bastidor='" + c.getBastidor() + "', modelo='" + c.getModelo() + "', color='" + c.getColor() + "' where id=" + c.getId() + ";");
+		   	
+			// Cierre de los elementos
+			s.close();
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return registrosAfectados;
+		
+	}
+
 
 }

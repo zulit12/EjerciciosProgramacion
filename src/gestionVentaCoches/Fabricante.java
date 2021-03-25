@@ -1,4 +1,4 @@
-package tutorialJava.capitulo8_AWT_SWING.gestionVentaDeCoches;
+package gestionVentaCoches;
 
 public class Fabricante {
 
@@ -19,7 +19,7 @@ public class Fabricante {
 
 	@Override
 	public String toString() {
-		return "Fabricante [id=" + id + ", cif=" + cif + ", nombre=" + nombre + "]";
+		return this.nombre;
 	}
 
 	/**

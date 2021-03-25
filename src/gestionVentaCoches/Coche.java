@@ -1,4 +1,4 @@
-package tutorialJava.capitulo8_AWT_SWING.gestionVentaDeCoches;
+package gestionVentaCoches;
 
 public class Coche {
 

@@ -1,4 +1,4 @@
-package tutorialJava.capitulo8_AWT_SWING.gestionVentaDeCoches;
+package gestionVentaCoches.controladores;
 
 import java.awt.EventQueue;
 
@@ -9,6 +9,9 @@ import javax.swing.JOptionPane;
 
 import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
+
+import gestionVentaCoches.Fabricante;
+
 import java.awt.Insets;
 import javax.swing.JPanel;
 import java.awt.FlowLayout;
