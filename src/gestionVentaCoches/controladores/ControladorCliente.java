@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import gestionVentaCoches.Cliente;
 import gestionVentaCoches.Coche;
@@ -50,15 +52,15 @@ public class ControladorCliente {
 		Cliente c = null;
 		try {
 			Statement s = this.conn.createStatement();
-			ResultSet rs =  s.executeQuery("select * from tutorialjavacoches.cliente order by id limit 1");
+			ResultSet rs =  s.executeQuery("select * from cliente order by id limit 1");
 			if (rs.next()) {
 				c = new Cliente();
-				c.setId(rs.getInt("idFabricante"));
-				c.setNombre(rs.getString("bastidor"));
-				c.setApellido(rs.getString("modelo"));
-				c.setLocalidad(rs.getString("color"));
-				c.setDniNie(rs.getString("dni"));
-				c.setFechaNac(rs.getString("fecha nacimiento"));
+				c.setId(rs.getInt("id"));
+				c.setNombre(rs.getString("nombre"));
+				c.setApellido(rs.getString("apellidos"));
+				c.setLocalidad(rs.getString("localidad"));
+				c.setDniNie(rs.getString("dniNie"));
+				c.setFechaNac(rs.getString("fechaNac"));
 				c.setActivo(rs.getBoolean("Activo"));
 			}
 		}
@@ -77,15 +79,15 @@ public class ControladorCliente {
 		Cliente c = null;
 		try {
 			Statement s = this.conn.createStatement();
-			ResultSet rs =  s.executeQuery("select * from tutorialjavacoches.cliente order by id desc limit 1");
+			ResultSet rs =  s.executeQuery("select * from cliente order by id desc limit 1");
 			if (rs.next()) {
 				c = new Cliente();
-				c.setId(rs.getInt("idFabricante"));
-				c.setNombre(rs.getString("bastidor"));
-				c.setApellido(rs.getString("modelo"));
-				c.setLocalidad(rs.getString("color"));
-				c.setDniNie(rs.getString("dni"));
-				c.setFechaNac(rs.getString("fecha nacimiento"));
+				c.setId(rs.getInt("id"));
+				c.setNombre(rs.getString("nombre"));
+				c.setApellido(rs.getString("apellidos"));
+				c.setLocalidad(rs.getString("localidad"));
+				c.setDniNie(rs.getString("dniNie"));
+				c.setFechaNac(rs.getString("fechaNac"));
 				c.setActivo(rs.getBoolean("Activo"));
 			}
 		}
@@ -104,15 +106,15 @@ public class ControladorCliente {
 		Cliente c = null;
 		try {
 			Statement s = this.conn.createStatement();
-			ResultSet rs =  s.executeQuery("select * from tutorialjavacoches.cliente where id > " + idActual + " order by id limit 1");
+			ResultSet rs =  s.executeQuery("select * from cliente where id > " + idActual + " order by id limit 1");
 			if (rs.next()) {
 				c = new Cliente();
-				c.setId(rs.getInt("idFabricante"));
-				c.setNombre(rs.getString("bastidor"));
-				c.setApellido(rs.getString("modelo"));
-				c.setLocalidad(rs.getString("color"));
-				c.setDniNie(rs.getString("dni"));
-				c.setFechaNac(rs.getString("fecha nacimiento"));
+				c.setId(rs.getInt("id"));
+				c.setNombre(rs.getString("nombre"));
+				c.setApellido(rs.getString("apellidos"));
+				c.setLocalidad(rs.getString("localidad"));
+				c.setDniNie(rs.getString("dniNie"));
+				c.setFechaNac(rs.getString("fechaNac"));
 				c.setActivo(rs.getBoolean("Activo"));
 			}
 		}
@@ -131,15 +133,15 @@ public class ControladorCliente {
 		Cliente c = null;
 		try {
 			Statement s = this.conn.createStatement();
-			ResultSet rs =  s.executeQuery("select * from tutorialjavacoches.cliente where id < " + idActual + " order by id desc limit 1");
+			ResultSet rs =  s.executeQuery("select * from cliente where id < " + idActual + " order by id desc limit 1");
 			if (rs.next()) {
 				c = new Cliente();
-				c.setId(rs.getInt("idFabricante"));
-				c.setNombre(rs.getString("bastidor"));
-				c.setApellido(rs.getString("modelo"));
-				c.setLocalidad(rs.getString("color"));
-				c.setDniNie(rs.getString("dni"));
-				c.setFechaNac(rs.getString("fecha nacimiento"));
+				c.setId(rs.getInt("id"));
+				c.setNombre(rs.getString("nombre"));
+				c.setApellido(rs.getString("apellidos"));
+				c.setLocalidad(rs.getString("localidad"));
+				c.setDniNie(rs.getString("dniNie"));
+				c.setFechaNac(rs.getString("fechaNac"));
 				c.setActivo(rs.getBoolean("Activo"));
 			}
 		}
@@ -150,35 +152,12 @@ public class ControladorCliente {
 	}
 	
 
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public int modificar (Fabricante f) {
-		int registrosAfectados = 0;
-		try {
-			Statement s = (Statement) this.conn.createStatement(); 
-
-			registrosAfectados = s.executeUpdate ("update cliente set cif='" + f.getCif() + "', " +
-					" nombre='" + f.getNombre() + "' where id=" + f.getId() + ";");
-		   	
-			// Cierre de los elementos
-			s.close();
-		}
-		catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		return registrosAfectados;
-		
-	}
-
 	/**
 	 * 
 	 * @param f
 	 * @return
 	 */
-	public int nuevo (Fabricante f) {
+	public int nuevo (Cliente c) {
 		int registrosAfectados = 0;
 		int idNuevoRegistro = 0;
 		try {
@@ -186,7 +165,7 @@ public class ControladorCliente {
 
 			idNuevoRegistro = nextId();
 			registrosAfectados = s.executeUpdate ("insert into cliente values(" + idNuevoRegistro + ", " +
-			"'" + f.getCif() + "', '" + f.getNombre() + "');");
+			"'" + c.getNombre() + "', '" + c.getApellido() +  "', '" + c.getLocalidad() +  "', '" + c.getDniNie() + "', '" + c.getFechaNac() + "', '" + c.isActivo() +"');");
 		   	
 			// Cierre de los elementos
 			s.close();
@@ -206,7 +185,7 @@ public class ControladorCliente {
 	private int nextId () throws SQLException {
 		Statement s = (Statement) this.conn.createStatement();
 
-		String sql = "select max(id) from tutorialjavacoches.cliente";
+		String sql = "select max(id) cliente";
 		ResultSet rs = s.executeQuery(sql);
 		int max = 1; 
 		if (rs.next() ) {
@@ -245,13 +224,13 @@ public class ControladorCliente {
 	 * 
 	 * @return
 	 */
-	public int modificar (Coche c) {
+	public int modificar (Cliente c) {
 		int registrosAfectados = 0;
 		try {
 			Statement s = (Statement) this.conn.createStatement(); 
 
-			registrosAfectados = s.executeUpdate ("update cliente set idFabricante=" + c.getIdFabricante() + ", " +
-					" bastidor='" + c.getBastidor() + "', modelo='" + c.getModelo() + "', color='" + c.getColor() + "' where id=" + c.getId() + ";");
+			registrosAfectados = s.executeUpdate ("update cliente set nombre='" + c.getNombre() + 
+					"', apellido='" + c.getApellido() + "', localidad='" + c.getLocalidad() + "', dniNie='" + c.getDniNie() + "', fechaNac='" + c.getFechaNac() +"', activo='" + c.isActivo() +"' where id=" + c.getId() + ";");
 		   	
 			// Cierre de los elementos
 			s.close();
@@ -261,6 +240,30 @@ public class ControladorCliente {
 		}
 		return registrosAfectados;
 		
+	}
+	
+	public List<Cliente> findAll () {
+		List<Cliente> clientes = new ArrayList<Cliente>();
+		try {
+			Statement s = this.conn.createStatement();
+			ResultSet rs =  s.executeQuery("select * from cliente");
+			while (rs.next()) {
+				Cliente c = new Cliente();
+				c.setId(rs.getInt("id"));
+				c.setNombre(rs.getString("nombre"));
+				c.setApellido(rs.getString("apellidos"));
+				c.setLocalidad(rs.getString("localidad"));
+				c.setDniNie(rs.getString("dniNie"));
+				c.setFechaNac(rs.getString("fechaNac"));
+				c.setActivo(rs.getBoolean("Activo"));
+				// Agrego el fabricante a la lista
+				clientes.add(c);
+			}
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return clientes;
 	}
 
 }
